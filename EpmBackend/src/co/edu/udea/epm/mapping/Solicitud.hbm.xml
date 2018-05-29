@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-may-2018 20:40:43 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="co.edu.udea.epm.dto.Solicitud" table="solicitud" lazy="false">
+        <id name="codigo" type="int">
+            <column name="CODIGO" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="sector" class="co.edu.udea.epm.dto.Sector" fetch="join">
+            <column name="SECTOR" />
+        </many-to-one>
+        <many-to-one name="sesion" class="co.edu.udea.epm.dto.Sesion" fetch="join">
+            <column name="SESION" />
+        </many-to-one>
+        <property name="estado" type="java.lang.String">
+            <column name="ESTADO" />
+        </property>
+        <property name="tipoDa&#241;o" type="java.lang.String">
+            <column name="TIPODA&#209;O" />
+        </property>
+        <property name="prioridad" type="java.lang.Character">
+            <column name="PRIORIDAD" />
+        </property>
+    </class>
+</hibernate-mapping>

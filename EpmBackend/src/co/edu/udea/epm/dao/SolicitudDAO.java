@@ -1,0 +1,14 @@
+package co.edu.udea.epm.dao;
+
+import java.util.List;
+
+import co.edu.udea.epm.dto.Sector;
+import co.edu.udea.epm.dto.Solicitud;
+import co.edu.udea.epm.exception.EpmDaoException;
+
+public interface SolicitudDAO {
+	
+	public List<Solicitud> obtenerPorSector(Sector sector)throws EpmDaoException;
+	public List<Solicitud> obtenerSolicitudes() throws EpmDaoException;
+	
+}

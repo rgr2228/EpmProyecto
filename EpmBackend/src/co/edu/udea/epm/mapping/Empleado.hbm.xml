@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 27-may-2018 20:40:43 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="co.edu.udea.epm.dto.Empleado" table="empleado" lazy="false">
+        <id name="documento" type="java.lang.Integer">
+            <column name="DOCUMENTO" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="equipo" class="co.edu.udea.epm.dto.Equipo" fetch="join">
+            <column name="EQUIPO" />
+        </many-to-one>
+        <many-to-one name="sector" class="co.edu.udea.epm.dto.Sector" fetch="join">
+            <column name="SECTOR" />
+        </many-to-one>
+        <many-to-one name="tipoEmpleado" class="co.edu.udea.epm.dto.TipoEmpleado" access="field" fetch="join">
+            <column name="TIPOEMPLEADO" />
+        </many-to-one>
+        <property name="nombre" type="java.lang.String">
+            <column name="NOMBRE" />
+        </property>
+        <property name="email" type="java.lang.String">
+            <column name="EMAIL" />
+        </property>
+        <property name="telefono" type="java.lang.String">
+            <column name="TELEFONO" />
+        </property>
+    </class>
+</hibernate-mapping>
