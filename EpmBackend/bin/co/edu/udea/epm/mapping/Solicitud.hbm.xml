@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated 27-may-2018 20:40:43 by Hibernate Tools 3.5.0.Final -->
+<!-- Generated 04-jun-2018 20:52:06 by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="co.edu.udea.epm.dto.Solicitud" table="solicitud" lazy="false">
         <id name="codigo" type="int">
@@ -11,8 +11,8 @@
         <many-to-one name="sector" class="co.edu.udea.epm.dto.Sector" fetch="join">
             <column name="SECTOR" />
         </many-to-one>
-        <many-to-one name="sesion" class="co.edu.udea.epm.dto.Sesion" fetch="join">
-            <column name="SESION" />
+        <many-to-one name="usuario" class="co.edu.udea.epm.dto.Usuario" fetch="join">
+            <column name="USUARIO" />
         </many-to-one>
         <property name="estado" type="java.lang.String">
             <column name="ESTADO" />
@@ -22,6 +22,12 @@
         </property>
         <property name="prioridad" type="java.lang.Character">
             <column name="PRIORIDAD" />
+        </property>
+        <property name="descripcion" type="java.lang.String">
+            <column name="DESCRIPCION" />
+        </property>
+        <property name="calificacion" type="java.lang.String">
+            <column name="CALIFICACION" />
         </property>
     </class>
 </hibernate-mapping>

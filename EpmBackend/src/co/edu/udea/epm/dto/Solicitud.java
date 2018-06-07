@@ -14,10 +14,12 @@ public class Solicitud implements java.io.Serializable {
 
 	private int codigo;
 	private Sector sector;
-	private Sesion sesion;
+	private Usuario usuario;
 	private String estado;
 	private String tipoDaño;
 	private Character prioridad;
+	private String descripcion;
+	private String calificacion;
 
 	public Solicitud() {
 	}
@@ -26,13 +28,13 @@ public class Solicitud implements java.io.Serializable {
 		this.codigo = codigo;
 	}
 
-	public Solicitud(int codigo, Sector sector, Sesion sesion, String estado, String tipoDaño, Character prioridad) {
-		this.codigo = codigo;
+	public Solicitud(Sector sector, Usuario usuario, String estado, String tipoDaño, Character prioridad, String descripcion) {
 		this.sector = sector;
-		this.sesion = sesion;
+		this.usuario = usuario;
 		this.estado = estado;
 		this.tipoDaño = tipoDaño;
 		this.prioridad = prioridad;
+		this.descripcion = descripcion;
 	}
 
 	public int getCodigo() {
@@ -51,12 +53,12 @@ public class Solicitud implements java.io.Serializable {
 		this.sector = sector;
 	}
 
-	public Sesion getSesion() {
-		return this.sesion;
+	public Usuario getUsuario() {
+		return this.usuario;
 	}
 
-	public void setSesion(Sesion sesion) {
-		this.sesion = sesion;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public String getEstado() {
@@ -83,4 +85,20 @@ public class Solicitud implements java.io.Serializable {
 		this.prioridad = prioridad;
 	}
 
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	public String getCalificacion() {
+		return calificacion;
+	}
+
+	public void setCalificacion(String calificacion) {
+		this.calificacion = calificacion;
+	}
+	
 }

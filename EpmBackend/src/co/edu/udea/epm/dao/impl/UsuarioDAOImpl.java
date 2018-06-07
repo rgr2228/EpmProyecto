@@ -57,4 +57,17 @@ public class UsuarioDAOImpl extends HibernateDaoSupport implements UsuarioDAO {
 		}
 		return usuario;
 	}
+
+	@Override
+	public Usuario obtenerPorDocumento(int documento) throws EpmDaoException {
+		Session session = null;
+		Usuario usuario = null;
+		try{
+			session = this.getSessionFactory().getCurrentSession();
+			usuario = (Usuario) session.get(Usuario.class,documento);
+		}catch(HibernateException e){
+			throw new EpmDaoException(e);
+		}
+		return usuario;
+	}
 }

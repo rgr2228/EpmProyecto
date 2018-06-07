@@ -23,7 +23,6 @@
 				<value>co/edu/udea/epm/mapping/Equipo.hbm.xml</value>
 				<value>co/edu/udea/epm/mapping/Sector.hbm.xml</value>
 				<value>co/edu/udea/epm/mapping/Servicio.hbm.xml</value>
-				<value>co/edu/udea/epm/mapping/Sesion.hbm.xml</value>
 				<value>co/edu/udea/epm/mapping/Solicitud.hbm.xml</value>
 				<value>co/edu/udea/epm/mapping/TipoEmpleado.hbm.xml</value>
 				<value>co/edu/udea/epm/mapping/Usuario.hbm.xml</value>

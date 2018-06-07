@@ -50,4 +50,69 @@ public class SolicitudBLImplTest {
 			fail(e.getMessage());
 		}
 	}
+	
+	@Test
+	public void testObtenerEstado() {
+		List<Solicitud> solicitudes = null;
+		try{
+			solicitudes = new ArrayList<Solicitud>();
+			solicitudes = solicitudBL.obtenerPorEstado("En curso");
+			assertTrue(solicitudes.size()>0);
+		}
+		catch(EpmDaoException e){
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void testObtenerUsuario() {
+		List<Solicitud> solicitudes = null;
+		try{
+			solicitudes = new ArrayList<Solicitud>();
+			solicitudes = solicitudBL.obtenerPorUsuario("1");
+			assertTrue(solicitudes.size()>0);
+		}
+		catch(EpmDaoException e){
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void testCrearSolicitud() {
+		try{
+			solicitudBL.crearSolicitud("Castilla", "1", "Finalizada", "Estructural", "1", "Se vino abajo la casa");
+		}
+		catch(EpmDaoException e){
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void testCalificarSolicitud() {
+		try{
+			solicitudBL.calificarSolicitud("1", "1", "Excelente");
+		}
+		catch(EpmDaoException e){
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	@Test
+	public void testObtenerPorCodigo() {
+		Solicitud solicitud = null;
+		try{
+			solicitud = solicitudBL.ObtenerPorCodigo("1");
+			assertNotNull(solicitud);
+		}
+		catch(EpmDaoException e){
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
+	
 }

@@ -60,5 +60,17 @@ public class UsuarioDAOImplTest {
 			fail(e.getMessage());
 		}
 	}
+	
+	@Test
+	public void testObtenerPorDocumento(){
+		Usuario usuario = null;
+		try {
+			usuario = usuarioDAO.obtenerPorDocumento(1);
+			assertNotNull(usuario);
+		}catch(EpmDaoException e) {
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
 
 }

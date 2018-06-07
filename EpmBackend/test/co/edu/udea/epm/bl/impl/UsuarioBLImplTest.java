@@ -27,7 +27,7 @@ public class UsuarioBLImplTest {
 	@Test
 	public void testCrearUsuario() {
 		try{
-			usuarioBL.crearUsuario("2", "Carolina", "Castilla", "5461234", "copito22@gmail.com","12345");
+			usuarioBL.crearUsuario("4", "Carolina", "Castilla", "5461234", "copito22@gmail.com","12345");
 		}
 		catch(EpmDaoException e){
 			e.printStackTrace();
@@ -38,7 +38,7 @@ public class UsuarioBLImplTest {
 	@Test
 	public void testLogin() {
 		try{
-			usuarioBL.login("rgr2228@gmail.com","12345");
+			usuarioBL.login("1","12345");
 		}
 		catch(EpmDaoException e){
 			e.printStackTrace();
@@ -73,4 +73,17 @@ public class UsuarioBLImplTest {
 		}
 	}
 
+	@Test
+	public void testObtenerPorDocumento() {
+		Usuario usuario = null;
+		try{
+			usuario = usuarioBL.obtenerPorDocumento("1");
+			assertNotNull(usuario);
+		}
+		catch(EpmDaoException e){
+			e.printStackTrace();
+			fail(e.getMessage());
+		}
+	}
+	
 }

@@ -10,10 +10,11 @@ public interface UsuarioBL {
 	public Usuario crearUsuario(String documento, String nombre, String direccion,
 			String telefono, String email, String password) throws EpmDaoException;
 	
-	public Usuario login(String email, String password)throws EpmDaoException;
+	public Usuario login(String documento, String password)throws EpmDaoException;
 	
 	public List<Usuario> obtenerUsuarios() throws EpmDaoException;
 	
 	public Usuario obtenerPorEmail(String email) throws EpmDaoException;
 	
+	public Usuario obtenerPorDocumento(String documento) throws EpmDaoException;
 }

@@ -33,6 +33,10 @@ public class UsuarioBLImpl implements UsuarioBL {
 		if(Validaciones.isTextoVacio(documento)){
 			throw new EpmDaoException("El documento no puede estar vacío");
 		}
+		usuario = usuarioDAO.obtenerPorDocumento(Integer.valueOf(documento));
+		if(usuario != null){
+			throw new EpmDaoException("Usuario ya existente en el sistema");
+		}
 		if(Validaciones.isTextoVacio(direccion)){
 			throw new EpmDaoException("La dirección no puede estar vacía");
 		}
@@ -47,12 +51,12 @@ public class UsuarioBLImpl implements UsuarioBL {
 	}
 
 	@Override
-	public Usuario login(String email, String password) throws EpmDaoException {
+	public Usuario login(String documento, String password) throws EpmDaoException {
 		Usuario usuario = null;
-		if(Validaciones.isTextoVacio(email)) {
+		if(Validaciones.isTextoVacio(documento)) {
 			throw new EpmDaoException(MENSAJE_AUTENTICA);
 		}
-		usuario = usuarioDAO.obtenerPorEmail(email);
+		usuario = usuarioDAO.obtenerPorDocumento(Integer.valueOf(documento));
 		if(usuario == null){
 			throw new EpmDaoException(MENSAJE_AUTENTICA);
 		}
@@ -77,6 +81,19 @@ public class UsuarioBLImpl implements UsuarioBL {
 			throw new EpmDaoException("El email no puede estar vacío");
 		}
 		usuario = usuarioDAO.obtenerPorEmail(email);
+		if(usuario == null){
+			throw new EpmDaoException("Usuario no encontrado");
+		}
+		return usuario;
+	}
+
+	@Override
+	public Usuario obtenerPorDocumento(String documento) throws EpmDaoException {
+		Usuario usuario = null;
+		if(Validaciones.isTextoVacio(documento)){
+			throw new EpmDaoException("El documento no puede estar vacío");
+		}
+		usuario = usuarioDAO.obtenerPorDocumento(Integer.valueOf(documento));
 		if(usuario == null){
 			throw new EpmDaoException("Usuario no encontrado");
 		}

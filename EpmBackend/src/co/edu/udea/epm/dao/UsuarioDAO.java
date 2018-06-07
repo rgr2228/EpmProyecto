@@ -1,4 +1,4 @@
-package co.edu.udea.epm.dao;
+	package co.edu.udea.epm.dao;
 
 import java.util.List;
 
@@ -10,4 +10,5 @@ public interface UsuarioDAO {
 	public Usuario crearUsuario(Usuario usuario) throws EpmDaoException;
 	public List<Usuario> obtenerUsuarios() throws EpmDaoException;
 	public Usuario obtenerPorEmail(String email) throws EpmDaoException;
+	public Usuario obtenerPorDocumento(int documento) throws EpmDaoException;
 }
