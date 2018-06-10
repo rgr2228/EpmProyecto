@@ -46,7 +46,7 @@ public class SolicitudDAOImplTest {
 		List<Solicitud> solicitudes = null;
 		Sector sector = null;
 		try{
-			sector = new Sector(1, "Castilla", "Medellín");
+			sector = new Sector(1, "Castilla", "MedellÃ­n");
 			solicitudes = new ArrayList<Solicitud>();
 			solicitudes = solicitudDAO.obtenerPorSector(sector);
 			assertTrue(solicitudes.size()>0);	
@@ -98,8 +98,8 @@ public class SolicitudDAOImplTest {
 	public void testCrearSolicitud() {
 		Solicitud solicitud = null;
 		try{
-			solicitud = new Solicitud(new Sector(1,"Castilla","Medellín"), new Usuario(1, "rgr2228@gmail.com", "12345"), 
-					"En curso", "Eléctrico", '1', "Se incendió la cocina");
+			solicitud = new Solicitud(new Sector(1,"Castilla","MedellÃ­n"), new Usuario(1, "rgr2228@gmail.com", "12345"), 
+					"En curso", "ElÃ©ctrico", '1', "Se incendiÃ³ la cocina");
 			solicitudDAO.crearSolicitud(solicitud);
 		}catch(EpmDaoException e) {
 			e.printStackTrace();
@@ -111,8 +111,8 @@ public class SolicitudDAOImplTest {
 	public void testModificarSolicitud() {
 		Solicitud solicitud = null;
 		try{
-			solicitud = new Solicitud(new Sector(1,"Castilla","Medellín"), new Usuario(1, "rgr2228@gmail.com", "12345"), 
-					"En curso", "Eléctrico", '1', "Se incendió la cocina");
+			solicitud = new Solicitud(new Sector(1,"Castilla","Medellï¿½n"), new Usuario(1, "rgr2228@gmail.com", "12345"), 
+					"En curso", "Elï¿½ctrico", '1', "Se incendiï¿½ la cocina");
 			solicitud.setCalificacion("Excelente");
 			solicitudDAO.modificarSolicitud(solicitud);
 		}catch(EpmDaoException e) {

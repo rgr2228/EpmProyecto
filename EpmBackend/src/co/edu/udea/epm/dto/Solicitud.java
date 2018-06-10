@@ -16,7 +16,7 @@ public class Solicitud implements java.io.Serializable {
 	private Sector sector;
 	private Usuario usuario;
 	private String estado;
-	private String tipoDaño;
+	private String tipoDaÃ±o;
 	private Character prioridad;
 	private String descripcion;
 	private String calificacion;
@@ -28,11 +28,11 @@ public class Solicitud implements java.io.Serializable {
 		this.codigo = codigo;
 	}
 
-	public Solicitud(Sector sector, Usuario usuario, String estado, String tipoDaño, Character prioridad, String descripcion) {
+	public Solicitud(Sector sector, Usuario usuario, String estado, String tipoDaÃ±o, Character prioridad, String descripcion) {
 		this.sector = sector;
 		this.usuario = usuario;
 		this.estado = estado;
-		this.tipoDaño = tipoDaño;
+		this.tipoDaÃ±o = tipoDaÃ±o;
 		this.prioridad = prioridad;
 		this.descripcion = descripcion;
 	}
@@ -69,12 +69,12 @@ public class Solicitud implements java.io.Serializable {
 		this.estado = estado;
 	}
 
-	public String getTipoDaño() {
-		return this.tipoDaño;
+	public String getTipoDaÃ±o() {
+		return this.tipoDaÃ±o;
 	}
 
-	public void setTipoDaño(String tipoDaño) {
-		this.tipoDaño = tipoDaño;
+	public void setTipoDaÃ±o(String tipoDaÃ±o) {
+		this.tipoDaÃ±o = tipoDaÃ±o;
 	}
 
 	public Character getPrioridad() {

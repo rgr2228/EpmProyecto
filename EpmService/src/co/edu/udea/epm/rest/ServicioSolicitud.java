@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -42,7 +43,7 @@ public class ServicioSolicitud {
 	
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-	@POST
+	@GET
 	public List<Solicitud> obtenerSolicitudes()throws RemoteException{
 		List<Solicitud> solicitudes = null;
 		try {
@@ -52,6 +53,22 @@ public class ServicioSolicitud {
 			throw new RemoteException(e.getMessage());
 		}
 		return solicitudes;
+	}
+	
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
+	@GET
+	@Path("/crear")
+	public Solicitud crearSolicitud(@QueryParam("sector")String sector,@QueryParam("usuario")String usuario,
+			@QueryParam("estado")String estado,@QueryParam("tipoDano")String tipoDaño,
+			@QueryParam("prioridad")String prioridad,@QueryParam("descripcion")String descripcion)throws RemoteException{
+		Solicitud solicitud = null;
+		try {
+			solicitud = solicitudBL.crearSolicitud(sector, usuario, estado, tipoDaño, prioridad, descripcion);
+		}catch(EpmDaoException e) {
+			throw new RemoteException(e.getMessage());
+		}
+		return solicitud;
 	}
 	
 }

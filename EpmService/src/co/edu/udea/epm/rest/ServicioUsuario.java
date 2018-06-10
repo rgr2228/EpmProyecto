@@ -43,13 +43,13 @@ public class ServicioUsuario {
 	}
 	
 	@Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-	@POST
+	@GET
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Path("/login")
-	public Usuario login(@QueryParam("email")String email,@QueryParam("password")String password)throws RemoteException{
+	public Usuario login(@QueryParam("documento")String documento,@QueryParam("password")String password)throws RemoteException{
 		Usuario usuario = null;
 		try{
-			usuario = usuarioBL.login(email, password);
+			usuario = usuarioBL.login(documento, password);
 		}catch(EpmDaoException e){
 			throw new RemoteException(e.getMessage());
 		}
@@ -58,7 +58,7 @@ public class ServicioUsuario {
 	
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(javax.ws.rs.core.MediaType.APPLICATION_JSON)
-	@POST
+	@GET
 	public List<Usuario> obtenerUsuarios()throws RemoteException{
 		List<Usuario> usuarios = null;
 		try {

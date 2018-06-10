@@ -33,7 +33,7 @@ public class SolicitudBLImpl implements SolicitudBL {
 		List<Solicitud> solicitudes = null;
 		Sector sector1 = null;
 		if(Validaciones.isTextoVacio(sector)){
-			throw new EpmDaoException("El sector no puede estar vacío");
+			throw new EpmDaoException("El sector no puede estar vacï¿½o");
 		}
 		sector1 = sectorDAO.obtenerPorNombre(sector);
 		if(sector1 == null){
@@ -56,7 +56,7 @@ public class SolicitudBLImpl implements SolicitudBL {
 	public List<Solicitud> obtenerPorEstado(String estado) throws EpmDaoException {
 		List<Solicitud> solicitudes = null;
 		if(Validaciones.isTextoVacio(estado)){
-			throw new EpmDaoException("El estado no puede estar vacío");
+			throw new EpmDaoException("El estado no puede estar vacï¿½o");
 		}
 		solicitudes = new ArrayList<Solicitud>();
 		solicitudes = solicitudDAO.obtenerPorEstado(estado);
@@ -67,38 +67,38 @@ public class SolicitudBLImpl implements SolicitudBL {
 	}	
 
 	@Override
-	public Solicitud crearSolicitud(String sector, String usuario, String estado, String tipoDaño, String prioridad,
+	public Solicitud crearSolicitud(String sector, String usuario, String estado, String tipoDaÃ±o, String prioridad,
 			String descripcion) throws EpmDaoException {
 		Solicitud solicitud = null;
 		Sector sector1 = null;
 		Usuario usuario1 = null;
 		if(Validaciones.isTextoVacio(sector)){
-			throw new EpmDaoException("El sector no puede estar vacío");
+			throw new EpmDaoException("El sector no puede estar vacï¿½o");
 		}
 		sector1 = sectorDAO.obtenerPorNombre(sector);
 		if(sector1==null){
 			throw new EpmDaoException("Sector no encontrado");
 		}
 		if(Validaciones.isTextoVacio(usuario)){
-			throw new EpmDaoException("El usuario no puede estar vacío");
+			throw new EpmDaoException("El usuario no puede estar vacï¿½o");
 		}
 		usuario1 = usuarioDAO.obtenerPorDocumento(Integer.valueOf(usuario));
 		if(usuario1 ==null){
-			throw new EpmDaoException("El usuario no válido");
+			throw new EpmDaoException("El usuario no vï¿½lido");
 		}
 		if(Validaciones.isTextoVacio(estado)){
-			throw new EpmDaoException("El estado no puede estar vacío");
+			throw new EpmDaoException("El estado no puede estar vacï¿½o");
 		}
-		if(Validaciones.isTextoVacio(tipoDaño)){
-			throw new EpmDaoException("El tipo de daño no puede estar vacío");
+		if(Validaciones.isTextoVacio(tipoDaÃ±o)){
+			throw new EpmDaoException("El tipo de daï¿½o no puede estar vacï¿½o");
 		}
 		if(Validaciones.isTextoVacio(prioridad)){
-			throw new EpmDaoException("La prioridad no puede estar vacía");
+			throw new EpmDaoException("La prioridad no puede estar vacï¿½a");
 		}
 		if(Validaciones.isTextoVacio(descripcion)){
-			throw new EpmDaoException("La descripcion no puede estar vacía");
+			throw new EpmDaoException("La descripcion no puede estar vacï¿½a");
 		}
-		solicitud = new Solicitud(sector1, usuario1, estado, tipoDaño, prioridad.charAt(0), descripcion);
+		solicitud = new Solicitud(sector1, usuario1, estado, tipoDaÃ±o, prioridad.charAt(0), descripcion);
 		return solicitudDAO.crearSolicitud(solicitud);
 	}
 
@@ -107,16 +107,16 @@ public class SolicitudBLImpl implements SolicitudBL {
 		Solicitud solicitud = null;
 		solicitud = solicitudDAO.obtenerPorCodigo(Integer.valueOf(codigo));
 		if(solicitud == null){
-			throw new EpmDaoException("Solicitud no válida");
+			throw new EpmDaoException("Solicitud no vï¿½lida");
 		}
 		if(!solicitud.getEstado().equals("Finalizada")){
 			throw new EpmDaoException("La solicitud no se ha finalizado");
 		}
 		if(!usuario.equals(String.valueOf(solicitud.getUsuario().getDocumento()))){
-			throw new EpmDaoException("Usuario no válido");
+			throw new EpmDaoException("Usuario no vï¿½lido");
 		}
 		if(Validaciones.isTextoVacio(calificacion)){
-			throw new EpmDaoException("La descripcion no puede estar vacía");
+			throw new EpmDaoException("La descripcion no puede estar vacï¿½a");
 		}
 		solicitud.setCalificacion(calificacion);
 		return solicitudDAO.modificarSolicitud(solicitud);
@@ -126,7 +126,7 @@ public class SolicitudBLImpl implements SolicitudBL {
 	public List<Solicitud> obtenerPorUsuario(String usuario) throws EpmDaoException {
 		List<Solicitud> solicitudes = null;
 		if(Validaciones.isTextoVacio(usuario)){
-			throw new EpmDaoException("El usuario no puede estar vacío");
+			throw new EpmDaoException("El usuario no puede estar vacï¿½o");
 		}
 		Usuario usuario1 = usuarioDAO.obtenerPorDocumento(Integer.valueOf(usuario));
 		if(usuario1 == null){
@@ -144,11 +144,11 @@ public class SolicitudBLImpl implements SolicitudBL {
 	public Solicitud ObtenerPorCodigo(String codigo) throws EpmDaoException {
 		Solicitud solicitud = null;
 		if(Validaciones.isTextoVacio(codigo)){
-			throw new EpmDaoException("El código no puede estar vacío");
+			throw new EpmDaoException("El cï¿½digo no puede estar vacï¿½o");
 		}
 		solicitud = solicitudDAO.obtenerPorCodigo(Integer.valueOf(codigo));
 		if(solicitud == null){
-			throw new EpmDaoException("El código no corresponde a ninguna solicitud");
+			throw new EpmDaoException("El cï¿½digo no corresponde a ninguna solicitud");
 		}
 		return solicitud;
 	}
